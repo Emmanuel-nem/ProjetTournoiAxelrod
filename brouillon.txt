@@ -1,0 +1,32 @@
+5 stratégies, qui chacune doivent affronter les 4 autres sur 5 parties de 200 tours
+ALL-D, RANDOM, TIT-FOR-TAT, TESTER et JOSS
+            j joue C j joue D
+i joue C    3, 3     0, 5
+i joue D    5, 0     2, 2
+
+Ecrire un moteur qui fait d'abord jouer 2 stratégies en 1v1, puis l'étendre à un tournoi entier
+implémenter les 5 stratégies du cours
+lancer le tournoi au format d'axelrod et produire un classement
+question ... (voir énoncé)
+
+règles de la rencontre des 2 agents :
+choix simultané. choix obligatoire. choix à l'aveugle.
+
+un agent rationnel préfère defect, au minimum il fait 2 et au max 5, vs mini 0 max 3.
+c'est un équilibre car si j fait D, il vaut mieux faire D, et si j fait C, il vaut mieux faire D.
+cependant on sait en pratique que si l'expérience est répétée, il vaut mieux enchaîner les 3 que les 2.
+
+//
+implémentation ?
+un main qui instancie un tournoi 
+tournoi lance les duels avec les participants
+duel prend 2 stratégies et renvoie le score obtenu par chacun des participants
+c'est une fct de tournoi
+
+comment se passe un duel
+en fonction de la stratégie, chaque agent va faire son algo. on va avoir des tours de duels (200 tours) 
+à chaque duel on récupère ce qui est joué par chaque agent. on regarde le résultat final, et en fonction on attribue
+les points à chaque agent.
+
+faire une classe par agent avec sa propre fonction de choix et éventuellement des attributs (mémoire de tester)
+dans duel on appelle les choix des agents impliqués et on récupère la valeur qu'ils ont retourné
